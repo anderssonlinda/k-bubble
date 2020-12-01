@@ -2,12 +2,10 @@ section {
     display: grid;
     grid-template-columns: 35% auto;
     height: 85vh;
-
 }
 
 .koala{
     display: flex;
-    /* height: 90%; */
 }
 
 .koala .character {
