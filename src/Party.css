@@ -1,0 +1,80 @@
+.party-wrapper{
+    display: flex;
+}
+.party-wrapper .character{
+    align-self: baseline;
+}
+
+.discoball {
+    margin: -210px 0 0 0;
+    height: 200px;
+    animation: showDiscoball 1s forwards, rotation 2s infinite linear;
+}
+
+.ray {
+    clip-path:polygon(0% 45%, 100% 0%, 100% 100%, 0% 55%);
+    transition: 4s;
+    transform: translateY(-50%) translateX(-50%) rotate(var(--angle)) translateY(50%) translateX(50%) translateY(-50%); 
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 500px;
+    height: 100px;
+    background: linear-gradient(0.25turn,rgba(255,255,0,0.7), rgba(255,255,100,0));
+}
+
+
+.light1 {
+    animation-duration: 7s;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+}
+
+.light2 {
+    animation-duration: 5s;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+}
+.bar {
+    height: 250px;
+    animation: show-bar 1s 1 linear;
+    align-self: flex-end;
+    margin-bottom: 50px;
+
+}
+  
+@keyframes wave {
+    0% {
+        --angle: 90deg;
+    }
+
+    50% {
+        --angle: 110deg;
+    }
+    100% {
+        --angle: 60deg;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+@keyframes showDiscoball {
+    100% {
+        margin: 0 0 0 0;
+    }
+}
+
+@keyframes show-bar {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 250px;
+    }
+}

@@ -1,0 +1,23 @@
+section {
+    display: grid;
+    grid-template-columns: 35% auto;
+    height: 85vh;
+
+}
+
+.koala{
+    display: flex;
+    /* height: 90%; */
+}
+
+.koala .character {
+    align-self: flex-end;
+    justify-self: center;
+    height: 400px; 
+}   
+
+.poop {
+    height: 200px;
+    align-self: flex-end;
+}
+

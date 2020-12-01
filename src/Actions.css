@@ -1,0 +1,22 @@
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    align-self: baseline;
+    height: 100px;
+}
+
+.actions .action {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-self: flex-end;
+    background-color: white;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.actions .action img {
+    height: 60px;
+}

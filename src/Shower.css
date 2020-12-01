@@ -1,0 +1,65 @@
+.koala-shower {
+    height: 90%;
+    display: flex;
+    position: absolute;
+
+}
+
+.koala-shower .character {
+    position: relative;
+    bottom: 68px;
+    z-index: -1;
+}
+.shower {
+    position: absolute;
+    display: flex;
+    align-items: space-between;
+}
+.shower .water{
+    height: 10px;
+    width: 100px;
+    position: relative;
+
+}
+
+.water-one {
+    position: relative;
+    animation: drop 1s infinite linear;
+    transform: rotate(15deg);
+}
+
+.water-two {
+    animation: drop 2s infinite linear;
+    transform: rotate(10deg);
+
+}
+
+.water-three {
+    animation: drop 1.5s infinite linear;
+    transform: rotate(5deg);
+
+}
+
+.water-four {
+    animation: drop 1s infinite linear;
+    transform: rotate(-5deg);
+
+}
+
+.water-five{
+    animation: drop 2s infinite linear;
+    transform: rotate(-10deg);
+
+}
+
+
+@keyframes drop {
+    0% {
+      /* transform: rotateY(0deg); */
+      top: 0;
+    }
+    100% {
+      /* transform: rotateY(180deg); */
+      top: 150px;
+    }
+}
