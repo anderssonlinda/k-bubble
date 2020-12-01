@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/anderssonlinda/project_four/static/css/main.94d25022.chunk.css",
+    "main.js": "/anderssonlinda/project_four/static/js/main.389e11e0.chunk.js",
+    "main.js.map": "/anderssonlinda/project_four/static/js/main.389e11e0.chunk.js.map",
+    "runtime-main.js": "/anderssonlinda/project_four/static/js/runtime-main.e5b93d29.js",
+    "runtime-main.js.map": "/anderssonlinda/project_four/static/js/runtime-main.e5b93d29.js.map",
+    "static/js/2.494ee6f3.chunk.js": "/anderssonlinda/project_four/static/js/2.494ee6f3.chunk.js",
+    "static/js/2.494ee6f3.chunk.js.map": "/anderssonlinda/project_four/static/js/2.494ee6f3.chunk.js.map",
+    "static/js/3.8cd4771d.chunk.js": "/anderssonlinda/project_four/static/js/3.8cd4771d.chunk.js",
+    "static/js/3.8cd4771d.chunk.js.map": "/anderssonlinda/project_four/static/js/3.8cd4771d.chunk.js.map",
+    "index.html": "/anderssonlinda/project_four/index.html",
+    "static/css/main.94d25022.chunk.css.map": "/anderssonlinda/project_four/static/css/main.94d25022.chunk.css.map",
+    "static/js/2.494ee6f3.chunk.js.LICENSE.txt": "/anderssonlinda/project_four/static/js/2.494ee6f3.chunk.js.LICENSE.txt",
+    "static/media/Bath.7dadfaf2.png": "/anderssonlinda/project_four/static/media/Bath.7dadfaf2.png",
+    "static/media/Norm.6e4d7585.png": "/anderssonlinda/project_four/static/media/Norm.6e4d7585.png",
+    "static/media/Winky.bd433d97.png": "/anderssonlinda/project_four/static/media/Winky.bd433d97.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5b93d29.js",
+    "static/js/2.494ee6f3.chunk.js",
+    "static/css/main.94d25022.chunk.css",
+    "static/js/main.389e11e0.chunk.js"
+  ]
+}
