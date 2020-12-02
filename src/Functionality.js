@@ -4,9 +4,11 @@ import Actions from './Actions'
 import Shower from './Shower'
 import Party from './Party'
 import Train from './Train'
-import standardKoala from './Norm.png'
-import happyKoala from './Winky.png'
+import Feed from './Feed'
+import Toilet from './Toilet'
+
 import './Functionality.css'
+import bathKoala from './K-bubble.gif'
 
 export default class Functionality extends Component{
 
@@ -29,6 +31,20 @@ export default class Functionality extends Component{
     isHappy = () => {
         return this.state.hunger < 5 && this.state.dirty < 5 && this.state.toilet < 5 && this.state.boredom < 5
     }
+
+    adjustHealthPoints = () => {
+        // return this.state.hunger < 5 && this.state.dirty < 5 && this.state.toilet < 5 && this.state.boredom < 5
+        if(this.isHappy()){
+            this.setState({
+                healthPoints: this.state.healthPoints += 1
+            })
+        } else {
+            this.setState({
+                healthPoints: this.state.healthPoints -= 1
+            })
+        }
+    }
+
     adjustDirtyStatus = (amount) => {
         let dirtyStatus = this.state.dirty
 
@@ -76,19 +92,12 @@ export default class Functionality extends Component{
         this.state.hunger < 4 ? amount = this.state.hunger : amount = 4
         this.setState({
             hunger: this.state.hunger -= amount,
+            action: 'feed'
         })
 
         this.adjustToiletStatus(3)
 
-        if(this.isHappy()){
-            this.setState({
-                healthPoints: this.state.healthPoints += 1
-            })
-        } else {
-            this.setState({
-                healthPoints: this.state.healthPoints -= 1
-            })
-        }
+        this.adjustHealthPoints()
     }
     
     party = (e) => {
@@ -103,15 +112,8 @@ export default class Functionality extends Component{
 
         this.adjustToiletStatus(3)
         
-        if(this.isHappy()){
-            this.setState({
-                healthPoints: this.state.healthPoints += 1
-            })
-        } else {
-            this.setState({
-                healthPoints: this.state.healthPoints -= 1
-            })
-        }
+        this.adjustHealthPoints()
+
 
         setTimeout(()=> {
             this.setState({
@@ -126,6 +128,7 @@ export default class Functionality extends Component{
             dirty: 0,
             action: 'wash'
         })
+        this.adjustHealthPoints()
 
         this.adjustBoredomStatus(2)
         setTimeout(()=> {
@@ -133,15 +136,7 @@ export default class Functionality extends Component{
                 action: null
             })
         }, 4000)
-        if(this.isHappy()){
-            this.setState({
-                healthPoints: this.state.healthPoints += 1
-            })
-        } else {
-            this.setState({
-                healthPoints: this.state.healthPoints -= 1
-            })
-        }
+
     }
 
     train = () => {
@@ -160,22 +155,15 @@ export default class Functionality extends Component{
         this.adjustHungerStatus(3)
         
         this.adjustDirtyStatus(3)
-        if(this.isHappy()){
-            this.setState({
-                healthPoints: this.state.healthPoints += 1
-            })
-        } else {
-            this.setState({
-                healthPoints: this.state.healthPoints -= 1
-            })
-        }
         
-        // setTimeout(()=> {
-        //     this.setState({
-        //         action: null
-        //     })
-        //     weights.classList.add('slide-out')
-        // }, 7000)
+        this.adjustHealthPoints()
+
+
+        setTimeout(()=> {
+            this.setState({
+                action: null
+            })
+        }, 4000)
     }
 
     toilet = () => {
@@ -185,44 +173,41 @@ export default class Functionality extends Component{
         })
 
         this.adjustDirtyStatus(2)
-        if(this.isHappy()){
-            this.setState({
-                healthPoints: this.state.healthPoints += 1
-            })
-        } else {
-            this.setState({
-                healthPoints: this.state.healthPoints -= 1
-            })
-        }
 
+        this.adjustHealthPoints()
+    
         setTimeout(()=> {
             this.setState({
                 action: null
             })
         }, 2000)
     }
+
+    activity = () => {
+        let koalaImg = <img className="character" src={bathKoala} alt=""/>
+
+        if(this.state.action === 'wash'){
+            return <Shower />
+        } else if (this.state.action === 'party'){
+            return <Party koalaImg = {koalaImg} />
+        } else if(this.state.action === 'toilet'){
+            return <Toilet koalaImg = {koalaImg} />
+        } else if(this.state.action === 'train'){
+            return <Train koalaImg = {koalaImg} />
+        } else if(this.state.action === 'feed') {
+            return <Feed koalaImg = {koalaImg} />
+        } else {
+            return koalaImg
+        }
+    }
+
     render(){
-        const activity = () => {
-            if(this.state.action === 'wash'){
-                return <Shower />
-            } else if (this.state.action === 'party'){
-                return <Party koalaImg = {koalaImg} />
-            } else if(this.state.action === 'toilet'){
-                return <img className="poop"src="https://www.flaticon.com/svg/static/icons/svg/2636/2636941.svg" alt=""/>
-            } else if(this.state.action === 'train'){
-                return <Train koalaImg = {koalaImg}/>
-            } else {
-                return koalaImg
-            }
-        }
-        let koalaImg = <img className="character" src={standardKoala} alt=""/>
 
-        if(this.isHappy()){
-            koalaImg = <img className="character" src={happyKoala} alt=""/>
-        } else if(this.isDead()){
-            koalaImg = <img className="character" src=''alt=""/>
-
-        }
+        // if(this.isHappy()){
+        //     koalaImg = <img className="character" src={happyKoala} alt=""/>
+        // } else if(this.isDead()){
+        //     koalaImg = <img className="character" src=''alt=""/>
+        // }
 
         return(
             <div className="functionality">
@@ -236,7 +221,7 @@ export default class Functionality extends Component{
                     />
 
                     <div className="koala">
-                        {activity()}
+                        {this.activity()}
                     </div>
                 </section>
                 <Actions 

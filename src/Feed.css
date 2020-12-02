@@ -1,0 +1,26 @@
+
+.feed-wrapper {
+    display: flex;
+    align-items: flex-end;
+}
+
+.feed-wrapper .character {
+    align-self: flex-end;
+}
+
+.feed-wrapper .food-stall {
+    height: 350px;
+    align-self: flex-end;
+    margin-bottom: 50px;
+    margin-left: 100px;
+    animation: food-stall-slide-in 1.5s 1 linear;
+}
+
+@keyframes food-stall-slide-in {
+    0% {
+        margin-left: 500px;
+    }
+    100% {
+        margin: 0 0 50px 100px;
+    }
+}

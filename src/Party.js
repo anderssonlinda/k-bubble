@@ -1,19 +1,19 @@
 import './Party.css'
-
+import darkBackground from './Dark DG.jpg'
+import djKoala from './DJ-K-bubb.gif'
 
 export default function Party({koalaImg}){
 
-    document.body.style.backgroundImage= "url('https://img.freepik.com/free-vector/illustration-night-mountains-landscape-with-tent-camp-starry-sky_296045-251.jpg?size=626&ext=jpg')";
+    document.body.style.backgroundImage= `url('${darkBackground}')`;
 
     return(
         
         <div className="party-wrapper">
             
-            {koalaImg}
-            <img className="discoball"src="https://www.flaticon.com/svg/static/icons/svg/3699/3699065.svg" alt=""/>
-            <img className="bar" src="https://www.flaticon.com/svg/static/icons/svg/3673/3673663.svg" alt=""/>
+            <img className="character" src={djKoala} alt=""/>
+
             <div className="light1">
-                <div style={{left: "30%"}} className="ray"></div>
+                <div style={{left: "45%"}} className="ray"></div>
             </div>
 
             <div className="light2"> 
