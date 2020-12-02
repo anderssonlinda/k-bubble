@@ -10,18 +10,18 @@
 }
 
 .train-wrapper .weigths {
-    height: 150px;
+    height: 250px;
     align-self: flex-end;
     margin-bottom: 50px;
-    margin-left: 200px;
-    animation: weights-slide-in 1.5s 1 linear;
+    margin-left: 160px;
+    animation: weights-slide-in 1s 1 linear;
 }
 
 @keyframes weights-slide-in {
     0% {
-        margin-left: 800px;
+        margin-left: 500px;
     }
     100% {
-        margin: 0 0 50px 200px;
+        margin: 0 0 50px 160px;
     }
 }

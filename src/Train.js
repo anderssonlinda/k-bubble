@@ -1,11 +1,11 @@
 import './Train.css'
+import trainingKoala from './K-gainz.gif'
 
-
-export default function Train({koalaImg}){
+export default function Train(){
     return( 
         <div className="train-wrapper">
-            {koalaImg}
-            <img className="weigths" src="https://www.flaticon.com/svg/static/icons/svg/2997/2997088.svg" alt=""/>
+            <img src={trainingKoala} alt="" className="character"/>
+            <img className="weigths" src="https://www.flaticon.com/svg/static/icons/svg/2738/2738580.svg" alt=""/>
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import './Toilet.css'
+import toiletKoala from './K-poop.gif'
 
-export default function Toilet({koalaImg}) {
+export default function Toilet() {
     return(
         <div className="toilet-wrapper">
-            {koalaImg}
-            <img className="poop"src="https://www.flaticon.com/svg/static/icons/svg/3004/3004425.svg" alt=""/>
+            <img src={toiletKoala} alt="" className="toilet-koala"/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 
-export default function HealthStatus({status}){
+export default function HealthStatus({status, type}){
     const style = {width: `${status/10 * 100}%`};
 
     return(

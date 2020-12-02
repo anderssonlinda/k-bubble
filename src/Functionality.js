@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HealthStatus from './HealthStatus'
+import NewGame from './NewGame'
 import Actions from './Actions'
 import Shower from './Shower'
 import Party from './Party'
@@ -8,7 +9,8 @@ import Feed from './Feed'
 import Toilet from './Toilet'
 
 import './Functionality.css'
-import bathKoala from './K-bubble.gif'
+import normKoala from './K-norm.png'
+import deadKoala from './K-ded.gif'
 
 export default class Functionality extends Component{
 
@@ -26,10 +28,31 @@ export default class Functionality extends Component{
     }
 
     isDead = () => {
-        return this.state.healthPoints == 0 
+        return this.state.healthPoints <= 0 
     }
+
     isHappy = () => {
         return this.state.hunger < 5 && this.state.dirty < 5 && this.state.toilet < 5 && this.state.boredom < 5
+    }
+
+    resetActivity = (length) => {
+        setTimeout(()=> {
+            this.setState({
+                action: null
+            })
+            document.body.style.backgroundImage= "";
+        }, length)
+    }
+
+    restartGame = () => {
+        this.setState({
+            hunger: 10,
+            boredom: 6,
+            dirty: 10,
+            toilet: 4,
+            action: null,
+            healthPoints: 10 
+        })
     }
 
     adjustHealthPoints = () => {
@@ -98,6 +121,8 @@ export default class Functionality extends Component{
         this.adjustToiletStatus(3)
 
         this.adjustHealthPoints()
+
+        this.resetActivity(7000)
     }
     
     party = (e) => {
@@ -114,13 +139,7 @@ export default class Functionality extends Component{
         
         this.adjustHealthPoints()
 
-
-        setTimeout(()=> {
-            this.setState({
-                action: null
-            })
-            document.body.style.backgroundImage= "";
-        }, 7000)
+        this.resetActivity(7000)
     }
 
     wash = () => {
@@ -131,12 +150,8 @@ export default class Functionality extends Component{
         this.adjustHealthPoints()
 
         this.adjustBoredomStatus(2)
-        setTimeout(()=> {
-            this.setState({
-                action: null
-            })
-        }, 4000)
 
+        this.resetActivity(4000)
     }
 
     train = () => {
@@ -158,12 +173,7 @@ export default class Functionality extends Component{
         
         this.adjustHealthPoints()
 
-
-        setTimeout(()=> {
-            this.setState({
-                action: null
-            })
-        }, 4000)
+        this.resetActivity(4000)
     }
 
     toilet = () => {
@@ -176,26 +186,23 @@ export default class Functionality extends Component{
 
         this.adjustHealthPoints()
     
-        setTimeout(()=> {
-            this.setState({
-                action: null
-            })
-        }, 2000)
+        this.resetActivity(3000)
     }
 
     activity = () => {
-        let koalaImg = <img className="character" src={bathKoala} alt=""/>
-
-        if(this.state.action === 'wash'){
+        let koalaImg = <img className="character" src={normKoala} alt=""/>
+        if(this.isDead()){
+            return <img className="character" src={deadKoala} alt=""/>
+        } else if(this.state.action === 'wash'){
             return <Shower />
         } else if (this.state.action === 'party'){
-            return <Party koalaImg = {koalaImg} />
+            return <Party />
         } else if(this.state.action === 'toilet'){
-            return <Toilet koalaImg = {koalaImg} />
+            return <Toilet />
         } else if(this.state.action === 'train'){
-            return <Train koalaImg = {koalaImg} />
+            return <Train />
         } else if(this.state.action === 'feed') {
-            return <Feed koalaImg = {koalaImg} />
+            return <Feed />
         } else {
             return koalaImg
         }
@@ -203,23 +210,23 @@ export default class Functionality extends Component{
 
     render(){
 
-        // if(this.isHappy()){
-        //     koalaImg = <img className="character" src={happyKoala} alt=""/>
-        // } else if(this.isDead()){
+        // if(this.isDead()){
         //     koalaImg = <img className="character" src=''alt=""/>
         // }
 
         return(
             <div className="functionality">
-                <section>                   
-                    <HealthStatus 
-                        hunger={this.state.hunger}
-                        boredom={this.state.boredom}
-                        dirty={this.state.dirty}
-                        toilet={this.state.toilet}
-                        healthPoints={this.state.healthPoints}
-                    />
-
+                <section> 
+                    {this.isDead()
+                        ?<NewGame restartGame={this.restartGame}/> 
+                        :<HealthStatus 
+                            hunger={this.state.hunger}
+                            boredom={this.state.boredom}
+                            dirty={this.state.dirty}
+                            toilet={this.state.toilet}
+                            healthPoints={this.state.healthPoints}
+                        />
+                    }
                     <div className="koala">
                         {this.activity()}
                     </div>

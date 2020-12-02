@@ -3,14 +3,6 @@
     align-items: flex-end;
 }
 
-.toilet-wrapper .character {
-    align-self: flex-end;
+.toilet-wrapper .toilet-koala {
+    height: 550px;
 }
-
-/* .feed-wrapper .food-stall {
-    height: 350px;
-    align-self: flex-end;
-    margin-bottom: 50px;
-    margin-left: 100px;
-    animation: food-stall-slide-in 1.5s 1 linear;
-} */
