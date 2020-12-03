@@ -1,6 +1,7 @@
 # K-Bubble
-![Landing Page](https://ibb.co/YLTLLhR)
+![Landing Page](./screen-shot-hp.png)
 http://k-bubble.surge.sh/
+
 A version of the 90's game Tamagotchi. In this version the player tries to look after a koala by meeting its needs. 
 ## Development
 ### Technologies used:
