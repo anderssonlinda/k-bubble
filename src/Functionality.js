@@ -9,8 +9,8 @@ import Feed from './Feed'
 import Toilet from './Toilet'
 
 import './Functionality.css'
-import normKoala from './K-norm.png'
-import deadKoala from './K-ded.gif'
+import normKoala from './K-norm-min.png'
+import deadKoala from './K-ded-min.gif'
 
 export default class Functionality extends Component{
 
@@ -35,13 +35,13 @@ export default class Functionality extends Component{
         return this.state.hunger < 5 && this.state.dirty < 5 && this.state.toilet < 5 && this.state.boredom < 5
     }
 
-    resetActivity = (length) => {
+    resetActivity = (time) => {
         setTimeout(()=> {
             this.setState({
                 action: null
             })
             document.body.style.backgroundImage= "";
-        }, length)
+        }, time)
     }
 
     restartGame = () => {
@@ -209,10 +209,6 @@ export default class Functionality extends Component{
     }
 
     render(){
-
-        // if(this.isDead()){
-        //     koalaImg = <img className="character" src=''alt=""/>
-        // }
 
         return(
             <div className="functionality">

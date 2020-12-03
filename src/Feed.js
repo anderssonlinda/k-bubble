@@ -1,6 +1,6 @@
 import './Feed.css'
 import FoodStall from './food-stall.png'
-import eatingKoala from './K-burgs.gif'
+import eatingKoala from './K-burgs-min.gif'
 
 export default function Feed({koalaImg}) {
     return(

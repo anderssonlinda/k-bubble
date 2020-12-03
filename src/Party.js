@@ -1,6 +1,6 @@
 import './Party.css'
-import darkBackground from './Dark DG.jpg'
-import djKoala from './DJ-K-bubb.gif'
+import darkBackground from './Dark DG-min.jpg'
+import djKoala from './DJ-K-bubb-min.gif'
 
 export default function Party({koalaImg}){
 

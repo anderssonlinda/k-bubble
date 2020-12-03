@@ -1,5 +1,5 @@
 import './Actions.css'
-import discoBall from './disco-ball.png'
+import discoBall from './disco-ball-min.png'
 import cutlery from './cutlery.png'
 import dumbell from './dumbell.png'
 import toiletSeat from './commode.png'

@@ -1,5 +1,5 @@
 import './Train.css'
-import trainingKoala from './K-gainz.gif'
+import trainingKoala from './K-gainz-min.gif'
 
 export default function Train(){
     return( 

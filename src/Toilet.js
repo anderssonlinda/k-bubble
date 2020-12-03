@@ -1,5 +1,5 @@
 import './Toilet.css'
-import toiletKoala from './K-poop.gif'
+import toiletKoala from './K-poop-min.gif'
 
 export default function Toilet() {
     return(

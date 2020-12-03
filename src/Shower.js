@@ -1,5 +1,5 @@
 import './Shower.css'
-import showerKoala from './K-bubble.gif'
+import showerKoala from './K-bubble-min.gif'
 
 export default function Shower() {
     return(
